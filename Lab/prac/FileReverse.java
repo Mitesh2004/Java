@@ -50,3 +50,27 @@ public class FileReverse {
     }
 }
 */
+
+
+
+
+import java.io.*; 
+import java.util.*; 
+
+class ReverseFile { 
+    public static void main(String args[]) throws IOException { 
+        Scanner sc = new Scanner(System.in); 
+        System.out.println("Enter file name:"); 
+        File f = new File(sc.next()); 
+        
+        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(f)); 
+        byte[] fc = bis.readAllBytes(); 
+        bis.close();
+        
+        for(int i = fc.length - 1; i >= 0; i--) { 
+            char ch = (char) fc[i]; 
+            System.out.print(Character.isLowerCase(ch) ? Character.toUpperCase(ch) : Character.toLowerCase(ch)); 
+        }
+    } 
+}
+
